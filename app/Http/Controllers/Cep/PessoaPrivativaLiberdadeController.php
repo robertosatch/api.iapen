@@ -30,7 +30,14 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json([
+            [
+                'id' => '1',
+                'nome' => 'criado',
+                'email' => 'novo'
+            ],
+            $request->all(),
+        ], 201);
     }
 
     /**
@@ -41,7 +48,7 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function show($id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -53,7 +60,7 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json([$request->all(), $id], 202);
     }
 
     /**
@@ -64,6 +71,6 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->noContent();
     }
 }
