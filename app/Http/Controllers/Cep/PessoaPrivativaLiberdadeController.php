@@ -14,12 +14,12 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function index()
     {
-        return [
+        return response()->json([
             'id' => '1',
             'name' => 'Roberto Satch',
             'email' => 'robertosatch@gmail.com',
-            'cpf' => '807.675.832.-72',
-        ];
+            'cpf' => '807.675.832-72',
+        ], 200);
     }
 
     /**
@@ -48,7 +48,7 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function show($id)
     {
-        return $id;
+        return response()->json(["message" => "O registro $id não foi encontrado"], 404);
     }
 
     /**
@@ -60,7 +60,10 @@ class PessoaPrivativaLiberdadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return response()->json([$request->all(), $id], 202);
+        return response()->json([
+            $request->all(),
+            $id
+        ], 202);
     }
 
     /**
